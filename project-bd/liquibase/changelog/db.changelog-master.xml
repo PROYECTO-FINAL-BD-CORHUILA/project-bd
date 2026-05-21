@@ -1,7 +1,20 @@
-<databaseChangeLog ...>
-    <include file="ddl/01-tablas.sql"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <include file="liquibase/ddl/v1-crear-tablas-iniciales.sql"/>
     
-    <include file="dml/canonical/v0-datos-maestros.sql"/>
+    <include file="liquibase/ddl/v2-restricciones-indices.sql"/>
     
-    <include file="dml/volumetric/v1-carga-masiva.sql"/>
+    <include file="liquibase/ddl/v3-vistas.sql"/>
+    
+    <include file="liquibase/ddl/v4-programacion-bd.sql"/>
+
+    <include file="liquibase/canonical/v1-datos-semilla.sql"/>
+
+    <include file="liquibase/volumetric/v1-carga-masiva.sql"/>
+
 </databaseChangeLog>
