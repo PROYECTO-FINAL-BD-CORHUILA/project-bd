@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  postgres_db:
+    image: postgres:15-alpine
+    container_name: huila_coffee_db
+    environment:
+      POSTGRES_DB: marketplace_db
+      POSTGRES_USER: santiago_user
+      POSTGRES_PASSWORD: coffee_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - marketplace_network
+
+  liquibase_runner:
+    image: liquibase/liquibase:4.23.0
+    container_name: marketplace_liquibase
+    volumes:
+      # Mapeamos de forma segura tu carpeta local liquibase
+      - ./liquibase:/liquibase/changelog
+    command: >
+      --changelog-file=changelog/db.changelog-master.xml
+      --url=jdbc:postgresql://postgres_db:5432/marketplace_db
+      --username=santiago_user
+      --password=coffee_password
+      --driver=org.postgresql.Driver
+      update
+    depends_on:
+      - postgres_db
+    networks:
+      - marketplace_network
+
+volumes:
+  postgres_data:
+
+networks:
+  marketplace_network:

@@ -1,0 +1,7 @@
+<databaseChangeLog ...>
+    <include file="ddl/01-tablas.sql"/>
+    
+    <include file="dml/canonical/v0-datos-maestros.sql"/>
+    
+    <include file="dml/volumetric/v1-carga-masiva.sql"/>
+</databaseChangeLog>

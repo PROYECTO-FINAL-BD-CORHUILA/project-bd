@@ -1,0 +1,6 @@
+# Plantilla de Configuración Local para Liquibase
+changeLogFile=liquibase/changelog/db.changelog-master.xml
+url=jdbc:postgresql://localhost:5432/marketplace_db
+username=santiago_user
+password=coffee_password
+driver=org.postgresql.Driver
