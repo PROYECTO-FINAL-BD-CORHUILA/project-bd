@@ -45,7 +45,7 @@ Maneja la inserción de la información en el sistema, dividida según su natura
 
 ## Flujo de Execution del Ciclo de Vida
 
-Para garantizar la integridad referencial de los datos, el `db.changelog-master.xml` ejecuta los componentes en la siguiente secuencia lógica:
+Para garantizar la integridad referencial de los datos, el `db.changelog-master.xml`se ejecuta los componentes en la siguiente secuencia lógica:
 
 ```text
 ┌───────────────┐      ┌─────────────────────────┐      ┌─────────────────┐      ┌─────────────────┐
